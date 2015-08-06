@@ -1,0 +1,4 @@
+Floors > La hauteur des etages augmente de 1 pour chaue etage
+Door > La Hauteur et la largeur de la porte augmentent de 2 tous les 2 etages (impairs)
+Doorknob > La poignee apparait a partir de 5 etages. En hauteur, elle apparait toujours au milieu ; en largeur, elle est toujours decalee de 2 caracteres du bord droit de la porte
+Stars > Le nombre d'etoiles augmente de 2 pour chaaue ligne, et de 2 * etage a chaque
