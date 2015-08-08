@@ -3,15 +3,17 @@ size = int(sys.argv[1])
 
 #Height fron size
 heights = []
-sup_stars = [0,4]
+sup_stars = [0,4,4]
 for i in range(size):
 	heights.append(3+i)
 
 tot = 4
-for i in range(2,size):
+i = 2
+while i < size:
 	if i > 1 and (i+1) % 2:
 		tot += 2
 	sup_stars.append(tot)
+	i += 1
 
 def get_line_len(floor, line):
 	tot = 0;
