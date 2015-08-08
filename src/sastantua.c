@@ -6,7 +6,7 @@
 /*   By: ebitsch <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 08:14:55 by ebitsch           #+#    #+#             */
-/*   Updated: 2015/08/08 09:32:58 by ebitsch          ###   ########.fr       */
+/*   Updated: 2015/08/08 13:55:28 by tifuzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int		ft_putchar(char c);
@@ -79,10 +79,4 @@ void	sastantua(int n_floors)
 		ft_putchar ('\n');
 		a_line++;
 	}
-}
-
-int		main(int argc, char **argv)
-{
-	sastantua (char_to_digit (argv[1][0]));
-	return (0);
 }
