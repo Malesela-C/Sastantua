@@ -6,7 +6,7 @@
 /*   By: ebitsch <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 08:14:55 by ebitsch           #+#    #+#             */
-/*   Updated: 2015/08/07 08:56:01 by ebitsch          ###   ########.fr       */
+/*   Updated: 2015/08/08 09:32:58 by ebitsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int		ft_putchar(char c);
@@ -18,7 +18,36 @@ int char_to_digit (char c)
 
 int		where_am_i(int a_line)
 {
+	/*Returns the floor on which the line is*/
+	int i;
+	int tot;
 
+	tot = 0;
+	i = 0;
+	while (tot + 3 + i < a_line)
+	{
+		tot += 3 + i;
+		i++;
+	}
+	return (tot);
+}
+
+char	*get_line(int a_line)
+{
+	int line_len;
+	int i;
+	int floor;
+	int even;
+
+	even = 1;
+	if (floor % 2)
+	{
+		even = 0;
+	}
+	floor = where_am_i(a_line);
+	i = 0;
+	line_len = 3 + 2 * a_line + (even * 2 *  2 + floor * even);
+	while (i < a_line){}
 }
 
 int		get_pyramid_height(int floors)
