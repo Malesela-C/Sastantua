@@ -1,10 +1,7 @@
 void	sastantua(int size);
 
-int main(int argc, const char *argv[])
+int main()
 {
-	if (argc < 1)
-		return (2);
-	else
-		sastantua(argv[1][1]);
+	sastantua(5);
 	return 0;
 }

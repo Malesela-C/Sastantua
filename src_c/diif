@@ -1,0 +1,176 @@
+1,11c1
+< /* ************************************************************************** */
+< /*                                                                            */
+< /*                                                        :::      ::::::::   */
+< /*   test_sa.c                                          :+:      :+:    :+:   */
+< /*                                                    +:+ +:+         +:+     */
+< /*   By: tifuzeau <marvin@42.fr>                    +#+  +:+       +#+        */
+< /*                                                +#+#+#+#+#+   +#+           */
+< /*   Created: 2015/08/09 17:13:40 by tifuzeau          #+#    #+#             */
+< /*   Updated: 2015/08/09 19:08:47 by tifuzeau         ###   ########.fr       */
+< /*                                                                            */
+< /* ************************************************************************** */
+---
+> int		ft_putchar(char c);
+13,17c3
+< #include <stdio.h>
+< 
+< void	ft_putchar(char c);
+< 
+< void	affiche_port(int poigner, int ligne, int size_door)
+---
+> void	write_door(int *i, int *poigner, int espace_1er_ligne, int s_door)
+19c5
+< 	int position_clef;
+---
+> 	int	position_key;
+21,25c7,10
+< 	position_clef = size_door / 2;
+< 	if (ligne == position_clef 
+< 		&& poigner == (size_door / 2) - 1 
+< 		&& size_door > 3)
+< 			ft_putchar('$');
+---
+> 	position_key = s_door / 2;
+> 	if ((espace_1er_ligne == position_key) && (*poigner == (s_door / 2) - 1)
+> 		&& (s_door > 3))
+> 		ft_putchar('$');
+27a13,14
+> 	*i = *i + 1;
+> 	*poigner = *poigner + 1;
+29,30c16
+< 
+< int		affiche_ligne(int ligne, int taille_ligne, int size_door)
+---
+> int		write_line(int line_nb, int espace_1er_ligne, int size_door)
+32,34c18,20
+< 	int i;
+< 	int z;
+< 	int poigner;
+---
+> 	int	i;
+> 	int	z;
+> 	int	poigner;
+36,37d21
+< 	i = 0;
+< 	z = 0;
+39c23,25
+< 	while (i < taille_ligne)
+---
+> 	z = 0;
+> 	i = 0;
+> 	while (i < espace_1er_ligne)
+46c32
+< 	while (i <= ligne * 2)
+---
+> 	while (i <= line_nb * 2)
+48,50c34,36
+< 		while (i == ligne + poigner && taille_ligne < size_door 
+< 				&& poigner <= size_door / 2) 
+< 			affiche_port(poigner++, taille_ligne++, size_door);
+---
+> 		while ((i == line_nb + poigner) && (espace_1er_ligne < size_door)
+> 			&& (poigner <= size_door / 2))
+> 			write_door(&i, &poigner, espace_1er_ligne, size_door);
+52c38
+< 		i++;
+---
+> 		i = i + 1;
+56c42
+< 	return (ligne -1);
+---
+> 	return (espace_1er_ligne - 1);
+59c45
+< void	print_puramid(int espace_1er_ligne, int nb_ligne_etage, int ligne_prochain_block, int size)
+---
+> void	print_pyramid(int espace_1er_ligne, int nb_ligne_etages, int ligne_porchain_block, int size_door)
+62,63c48,49
+< 	int	condition_inc_nb_jumps;
+< 	int	ligne_next_etage;
+---
+> 	int	condition_inc_nb_ligne_etages;
+> 	int	ligne_next_block;
+66,68c52,54
+< 	ligne_next_etage = 4;
+< 	condition_inc_nb_jumps = 1;
+< 	while (espace_1er_ligne)
+---
+> 	ligne_next_block = 4;
+> 	condition_inc_nb_ligne_etages = 1;
+> 	while (espace_1er_ligne + 1)
+70c56
+< 		if (ligne == ligne_prochain_block)
+---
+> 		if (ligne == ligne_porchain_block)
+72,76c58,62
+< 			ligne += nb_ligne_etage;
+< 			espace_1er_ligne -= nb_ligne_etage;
+< 			ligne_prochain_block = ligne + ligne_next_etage;
+< 			ligne_next_etage++;
+< 			if (condition_inc_nb_jumps == 2)
+---
+> 			ligne += nb_ligne_etages;
+> 			espace_1er_ligne -= nb_ligne_etages;
+> 			ligne_porchain_block = ligne + ligne_next_block;
+> 			ligne_next_block++;
+> 			if (condition_inc_nb_ligne_etages == 2)
+78,79c64,65
+< 				nb_ligne_etage++;
+< 				condition_inc_nb_jumps = 0;
+---
+> 				nb_ligne_etages++;
+> 				condition_inc_nb_ligne_etages = 0;
+81c67
+< 			condition_inc_nb_jumps++;
+---
+> 			condition_inc_nb_ligne_etages++;
+83,85c69,70
+< 		printf("%d espace_1er_ligne", espace_1er_ligne);
+< 		espace_1er_ligne = affiche_ligne(ligne , espace_1er_ligne, size);
+< 		ligne++;
+---
+> 		espace_1er_ligne = write_line(ligne, espace_1er_ligne, size_door);
+> 		ligne = ligne + 1;
+91,95c76,80
+< 	int espace_1er_ligne;
+< 	int nb_ligne_etage;
+< 	int ligne_prochain_block;
+< 	int i;
+< 	int j;
+---
+> 	int	espace_1er_ligne;
+> 	int	nb_ligne_etages;
+> 	int	ligne_porchain_block;
+> 	int	i;
+> 	int	z;
+98,100c83,85
+< 	j = 0;
+< 	nb_ligne_etage = 2;
+< 	ligne_prochain_block = 3;
+---
+> 	z = 0;
+> 	nb_ligne_etages = 2;
+> 	ligne_porchain_block = 3;
+106,108c91,95
+< 			espace_1er_ligne += 6 + j;
+< 			if (i > 1 && i % 2)
+< 				j += 2;
+---
+> 			espace_1er_ligne = espace_1er_ligne + 6 + z;
+> 			if (i > 1)
+> 				z = z + 1;
+> 			if ((i > 1) && (i % 2))
+> 				z = z + 1;
+112,113c99,100
+< 			size -= 1;
+< 		print_puramid(espace_1er_ligne - 4, nb_ligne_etage, ligne_prochain_block, size);
+---
+> 			size = size - 1;
+> 		print_pyramid(espace_1er_ligne - 4, nb_ligne_etages, ligne_porchain_block, size);
+115a103,108
+> 
+> int main()
+> {
+> 	sastantua(3);
+> 	return 0;
+> }
