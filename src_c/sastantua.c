@@ -6,10 +6,9 @@
 /*   By: ebitsch <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/07 08:14:55 by ebitsch           #+#    #+#             */
-/*   Updated: 2015/08/08 13:55:28 by tifuzeau         ###   ########.fr       */
+/*   Updated: 2015/08/08 16:08:12 by tifuzeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int		ft_putchar(char c);
 
 int char_to_digit (char c)
 {
